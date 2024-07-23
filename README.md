@@ -53,7 +53,9 @@ The observation are taken from 30m x 30m patches of forest that are classified a
 
 ## Dataset Information
 
-- **Source:** [UCI Machine Learning Repository - Forest Cover Type Dataset](https://archive.ics.uci.edu/dataset/31/covertype)
+- **Source:** [UCI Machine Learning Repository - Forest Cover Type Dataset](https://archive.ics.uci.edu/dataset/31/covertype).
+
+    Blackard,Jock. (1998). Covertype. UCI Machine Learning Repository. https://doi.org/10.24432/C50K5N.
 - **Region:** Roosevelt National Forest, Colorado
 - **Variables:** Cartographic variables (no remotely sensed data)
 - **Independent Variables:** Derived from USGS and USFS, including binary columns for qualitative data (wilderness areas and soil types)
@@ -131,6 +133,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License.
 
----
-
-Feel free to adjust as needed!
