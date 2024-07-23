@@ -9,6 +9,8 @@ This project classifies forest cover types using cartographic variables. We empl
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Life cycle](#project-life-cycle)
+- [Problem Statement](#problem-statement)
 - [Dataset Information](#dataset-information)
 - [Project Structure](#project-structure)
 - [Setup](#setup)
@@ -20,6 +22,34 @@ This project classifies forest cover types using cartographic variables. We empl
 ## Introduction
 
 The Forest Cover Classification project uses machine learning to predict forest cover types based on cartographic features, enhancing our understanding of ecological processes in minimally disturbed wilderness areas.
+
+## Project life cycle
+Forest Cover Type Prediciton
+
+* Understanding the Problem Statement
+* Data Collection
+* Data Cleaning
+* Exploratory data analysis
+* Data Pre-Processing
+* Model Training and hyper parameter tuning
+* Model selection
+
+
+## Problem Statement
+* The data is from 4 wilderness areas located in the Roosevelt National Forest of northern Colorado. The wilderness areas are:
+1. Rawah Wilderness Area
+2. Neota Wilderness Area
+3. Comanche Peak Wilderness Area
+4. Cache la Poudre Wilderness Area
+The observation are taken from 30m x 30m patches of forest that are classified as one of seven cover types
+1. Spruce/Fir
+2. Lodgepole Pine
+3. Ponderosa Pine
+4. Cottonwood/Willow
+5. Aspen
+6. Douglas-fir
+7. Krummholz
+
 
 ## Dataset Information
 
