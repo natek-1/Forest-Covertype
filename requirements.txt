@@ -6,3 +6,5 @@ pandas
 xgboost
 lightgbm
 catboost
+python-dotenv
+pymongo==4.1.0
