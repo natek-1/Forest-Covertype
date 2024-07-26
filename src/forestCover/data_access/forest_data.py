@@ -13,7 +13,7 @@ class ForestData:
     
     def export_collection_as_df(self, collection_name: str = DATABASE_COLLECTION) -> pd.DataFrame:
 
-        forest_collection = self.mongo_client[collection_name]
+        forest_collection = self.mongo_client.database[collection_name]
 
         data_from_db = forest_collection.find()
         df_loaded = pd.DataFrame(list(data_from_db))

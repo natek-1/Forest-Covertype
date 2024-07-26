@@ -25,15 +25,15 @@ with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
 AUTHOR_USER_NAME="natek-1"
-REPO_NAME="Chest-CT-Scan-Classification"
+REPO_NAME="Forest-Covertype"
 
 
 setup(
-    name="cnnClassifier",
+    name="forestCover",
     version="0.0.1",
     author="Nathan Kuissi",
     author_email="nategabrielk@icloud.com",
-    description="A small python package for CNN for chest disease classification",
+    description="A small python package for forest type classification",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
     long_description=long_description,
     long_description_content="text/markdown",
