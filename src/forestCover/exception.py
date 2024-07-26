@@ -14,7 +14,7 @@ def error_message_detail(error, error_detail: sys):
 
 
 class CustomException(Exception):
-    def __init__(self, error_message, error_detail: sys):
+    def __init__(self, error_message, error_detail: sys = sys):
         """
         :param error_message: error message in string format
         """
