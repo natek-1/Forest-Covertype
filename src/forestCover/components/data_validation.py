@@ -25,10 +25,11 @@ class DataValidation:
         self.data_ingestion_artifact = data_ingestion_artifact
         self.config = data_validation_config
         self._schema_file = read_yaml(SCHEMA_FILE_PATH)
+        os.makedirs(self.config.data_validation_dir, exist_ok=True)
 
     
     def validate_column_number(self, dataframe: pd.DataFrame) -> bool:
-        status = len(dataframe.columns) == len(self._schema_file["columns"])
+        status = len(dataframe.columns) == len(self._schema_file["numerical_columns"])
         logging.info(f"Is numer of column required present, Status: {status}")
         return status
     
@@ -54,10 +55,8 @@ class DataValidation:
         report = data_drift_profile.json()
         json_report = json.loads(report)
 
-        dirpath = os.path.dirname(self.config.data_validation_dir)
-        os.makedirs(dirpath, exist_ok=True)
-
         save_json_to_yaml(self.config.data_validation_drift_file, json_report)
+        logging.info(f"saved data drift report to {self.config.data_validation_drift_file}")
 
         n_features = json_report["data_drift"]["data"]["metrics"]["n_features"]
         n_drifted_features = json_report["data_drift"]["data"]["metrics"]["n_drifted_features"]

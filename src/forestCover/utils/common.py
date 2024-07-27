@@ -44,7 +44,7 @@ def save_json_to_yaml(path: Path, data: dict):
     yaml_data = yaml.dump(data, sort_keys=False)
 
     # Save YAML to file
-    with open('data.yaml', 'w') as file:
+    with open(path, 'w') as file:
         file.write(yaml_data)
 
     logging.info(f"json file saved at: {path}")
