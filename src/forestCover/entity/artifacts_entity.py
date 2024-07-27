@@ -12,3 +12,9 @@ class DataValidationArtifact:
     validation_status: bool
     message: str
     drift_report_file_path: Path
+
+@dataclass
+class DataTransormationArfitact:
+    preprocessor_path: Path
+    train_file_path: Path
+    test_file_path: Path

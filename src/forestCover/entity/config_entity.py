@@ -1,10 +1,10 @@
 from dataclasses import dataclass
-from from_root import from_root
 import os
 from pathlib import Path
 from forestCover.constants import (ARTIFACT_DIR, DATA_INGESTION_DIR, DATA_INGESTION_FEATURE_STORE, TRAIN_FILE_NAME,
                                     TEST_FILE_NAME, DATA_INGESTION_TRAIN_TEST_SPLIT, DATA_VALIDATION_DIR_NAME,
-                                    DATA_VALIDATION_DIR_NAME_DRIFT_REPORT_NAME)
+                                    DATA_VALIDATION_DIR_NAME_DRIFT_REPORT_NAME,
+                                    DATA_TRANSFORMATION_DIR_NAME, DATA_TRANSFORMATION_TEST_FILE_NAME, DATA_TRANSFORMATION_TRAIN_FILE_NAME, PREPROCESSING_FILE_NAME)
 
 
 @dataclass
@@ -19,4 +19,11 @@ class DataIngestionConfig:
 class DataValidationConfig:
     data_validation_dir: Path = os.path.join(ARTIFACT_DIR, DATA_VALIDATION_DIR_NAME)
     data_validation_drift_file: Path = os.path.join(data_validation_dir, DATA_VALIDATION_DIR_NAME_DRIFT_REPORT_NAME)
+
+@dataclass
+class DataTransformationConfig:
+    data_transformation_dir: Path = os.path.join(ARTIFACT_DIR, DATA_TRANSFORMATION_DIR_NAME)
+    data_transformation_train_file_path: Path = os.path.join(data_transformation_dir, DATA_TRANSFORMATION_TRAIN_FILE_NAME)
+    data_transformation_test_file_path: Path = os.path.join(data_transformation_dir, DATA_TRANSFORMATION_TEST_FILE_NAME)
+    preprocessor_file_path: Path = os.path.join(data_transformation_dir, PREPROCESSING_FILE_NAME)
     

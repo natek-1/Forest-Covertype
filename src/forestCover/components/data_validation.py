@@ -29,7 +29,7 @@ class DataValidation:
 
     
     def validate_column_number(self, dataframe: pd.DataFrame) -> bool:
-        status = len(dataframe.columns) == len(self._schema_file["numerical_columns"])
+        status = len(dataframe.columns) == len(self._schema_file["numerical_columns"]) + 1
         logging.info(f"Is numer of column required present, Status: {status}")
         return status
     

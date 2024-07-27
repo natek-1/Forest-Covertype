@@ -106,7 +106,6 @@ numerical_columns:
   - Soil_Type38
   - Soil_Type39
   - Soil_Type40
-  - Cover_Type
 
 categorical_columns:
   - Cover_Type

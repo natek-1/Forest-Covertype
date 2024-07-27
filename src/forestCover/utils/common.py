@@ -3,6 +3,8 @@ import os
 import yaml, json
 from typing import Any
 from pathlib import Path
+import pickle
+import numpy as np
 import sys
 
 
@@ -48,3 +50,29 @@ def save_json_to_yaml(path: Path, data: dict):
         file.write(yaml_data)
 
     logging.info(f"json file saved at: {path}")
+
+
+
+def save_to_pickle(obj, file_path):
+    """
+    Save an object to a pickle file.
+
+    Parameters:
+    obj: The object to be pickled.
+    file_path: The name of the file to save the object.
+    """
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, 'wb') as file:
+        pickle.dump(obj, file)
+
+
+def save_numpy_array(array, file_path):
+    """
+    Save a NumPy array to a file.
+
+    Parameters:
+    array: The NumPy array to be saved.
+    file_path: The name of the file to save the array.
+    """
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    np.save(file_path, array)
