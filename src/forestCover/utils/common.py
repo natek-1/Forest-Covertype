@@ -30,3 +30,21 @@ def read_yaml(path_to_yaml: Path):
         error = CustomException(e, sys)
         logging.error(error.error_message)
         raise error
+
+
+def save_json_to_yaml(path: Path, data: dict):
+    """save json data
+
+    Args:
+        path (Path): path to json file
+        data (dict): data to be saved in json file
+    """
+    
+    # Convert JSON to YAML
+    yaml_data = yaml.dump(data, sort_keys=False)
+
+    # Save YAML to file
+    with open('data.yaml', 'w') as file:
+        file.write(yaml_data)
+
+    logging.info(f"json file saved at: {path}")
