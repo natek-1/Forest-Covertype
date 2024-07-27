@@ -163,3 +163,4 @@ cython_debug/
 
 rf_classifier.pkl
 data/
+artifacts/

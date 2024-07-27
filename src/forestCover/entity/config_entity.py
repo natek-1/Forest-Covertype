@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from from_root import from_root
 import os
 from pathlib import Path
-from forestCover.constants import (ARTIFACT_DIR, DATA_INGESTION_DIR, DATA_INGESTION_FEATURE_STORE, TRAIN_FILE_NAME,
+from forestCover.config import (ARTIFACT_DIR, DATA_INGESTION_DIR, DATA_INGESTION_FEATURE_STORE, TRAIN_FILE_NAME,
                                     TEST_FILE_NAME, DATA_INGESTION_TRAIN_TEST_SPLIT)
 
 
