@@ -31,9 +31,10 @@ class ModelTrainer:
         X_train, y_train = train[:,:-1], train[:,-1]
         X_test, y_test = test[:,:-1], test[:,-1]
 
-        best_model_details = model_factory(
+        best_model_details = model_factory.get_best_model(
             X=X_train, y=y_train, base_accuracy=self.config.min_score
         )
+
 
         model_obj =best_model_details.best_model
         y_pred = model_obj.predict(X_test)
@@ -54,7 +55,7 @@ class ModelTrainer:
             train_arr = load_numpy_array(self.artifact.train_file_path)
             test_arr = load_numpy_array(self.artifact.test_file_path)
 
-            best_model, metric_artifact = self.get_model_and_report()
+            best_model, metric_artifact = self.get_model_and_report(train=train_arr, test=test_arr)
             logging.info("done doing hyper parameter tuning")
 
             if best_model.best_score < self.config.min_score:
@@ -68,8 +69,8 @@ class ModelTrainer:
             logging.info("created model for prediction")
             save_to_pickle(obj=model, file_path=self.config.model_path)
             logging.info(f"saved model at {self.config.model_path}")
-            artifact = ModelTrainerArtifact(model_path=self.config.model_path,
-                                            metric_artifact=metric_artifact)
+            artifact = ModelTrainerArtifact(metric_artifact=metric_artifact,
+                                        model_path=self.config.model_path)
             
 
             logging.info("done with model training")

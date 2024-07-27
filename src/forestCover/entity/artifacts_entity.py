@@ -28,4 +28,4 @@ class ClassificationMetric:
 @dataclass
 class ModelTrainerArtifact:
     model_path: Path
-    mertic_artifact: ClassificationMetric
+    metric_artifact: ClassificationMetric
