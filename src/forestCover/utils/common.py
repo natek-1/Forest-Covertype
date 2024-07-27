@@ -76,3 +76,13 @@ def save_numpy_array(array, file_path):
     """
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     np.save(file_path, array)
+
+def load_numpy_array(file_path):
+
+    with open(file_path, "rb") as file:
+        return np.load(file)
+
+
+def load_object(file_path):
+    with open(file_path, "rb") as file:
+        return pickle.load(file)

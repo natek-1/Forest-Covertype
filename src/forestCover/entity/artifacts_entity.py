@@ -18,3 +18,14 @@ class DataTransormationArfitact:
     preprocessor_path: Path
     train_file_path: Path
     test_file_path: Path
+
+@dataclass
+class ClassificationMetric:
+    f1_score: float
+    precision: float
+    recall: float
+
+@dataclass
+class ModelTrainerArtifact:
+    model_path: Path
+    mertic_artifact: ClassificationMetric

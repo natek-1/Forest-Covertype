@@ -5,6 +5,7 @@ import sys
 from forestCover.components.data_ingestion import DataIngestion
 from forestCover.components.data_validation import DataValidation
 from forestCover.components.data_transformation import DataTransformation
+from forestCover.components.model_training import ModelTrainer
 from forestCover.entity.artifacts_entity import DataIngestionArtifact, DataValidationArtifact
 from forestCover.exception import CustomException
 from forestCover.logger import logging
@@ -25,7 +26,8 @@ class TrainingPipeline:
             data_validation_artifact = self.data_validation.initial_data_validation()
             data_transformation = DataTransformation(data_ingestion_artifact=data_ingestion_artifact)
             data_transformation_artifact = data_transformation.initiate_data_transformation()
-
+            model_trainer = ModelTrainer(data_transformation_artifact=data_transformation_artifact)
+            model_training_artifact = model_trainer.initiate_model_training()
 
             
 

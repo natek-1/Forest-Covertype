@@ -15,4 +15,5 @@ from-root==1.0.2
 awscli==1.25.70
 evidently==0.2.8
 imbalanced-learn
+neuro_mf
 -e .
