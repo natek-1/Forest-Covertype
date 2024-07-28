@@ -10,7 +10,8 @@ python-dotenv
 pymongo[srv]==4.1
 from_root
 boto3==1.24.65
-
+botocore-stubs==1.27.86
+mypy-boto3-s3==1.24.76
 pyyaml==5.3.1
 from-root==1.0.2
 awscli==1.25.70
