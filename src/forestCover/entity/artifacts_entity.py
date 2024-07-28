@@ -29,3 +29,10 @@ class ClassificationMetric:
 class ModelTrainerArtifact:
     model_path: Path
     metric_artifact: ClassificationMetric
+
+@dataclass
+class ModelEvaluationArtifact:
+    is_model_accepted: bool
+    change_accuracy: float
+    best_model_path: str
+    trained_model_path: str

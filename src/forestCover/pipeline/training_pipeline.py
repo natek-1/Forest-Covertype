@@ -6,7 +6,8 @@ from forestCover.components.data_ingestion import DataIngestion
 from forestCover.components.data_validation import DataValidation
 from forestCover.components.data_transformation import DataTransformation
 from forestCover.components.model_training import ModelTrainer
-from forestCover.entity.artifacts_entity import DataIngestionArtifact, DataValidationArtifact, DataTransormationArfitact
+from forestCover.components.model_evaluation import ModelEvaluation
+from forestCover.entity.artifacts_entity import DataIngestionArtifact, DataValidationArtifact, DataTransormationArfitact, ModelTrainerArtifact
 from forestCover.exception import CustomException
 from forestCover.logger import logging
 
@@ -26,13 +27,20 @@ class TrainingPipeline:
             #data_validation_artifact = self.data_validation.initial_data_validation()
             #data_transformation = DataTransformation(data_ingestion_artifact=data_ingestion_artifact)
             #data_transformation_artifact = data_transformation.initiate_data_transformation()
-            data_transformation_artifact = DataTransormationArfitact(preprocessor_path="artifacts/data_transformation/preprocessor.pkl",
-                                            train_file_path="artifacts/data_transformation/train.npy",
-                                            test_file_path="artifacts/data_transformation/test.npy")
-            model_trainer = ModelTrainer(data_transformation_artifact=data_transformation_artifact)
-            model_training_artifact = model_trainer.initiate_model_training()
-
-            
+            #model_trainer = ModelTrainer(data_transformation_artifact=data_transformation_artifact)
+            #model_trainer_artifact = model_trainer.initiate_model_training()
+            data_ingestion_artifact = DataIngestionArtifact(
+                trained_file_path="artifacts/DataIngestion/train.csv",
+                test_file_path="artifacts/DataIngestion/test.csv"
+            )
+            model_trainer_artifact = ModelTrainerArtifact(
+                model_path="artifacts/model_trainer/model.pkl",
+                metric_artifact=None
+            )
+            model_evaluation = ModelEvaluation(data_ingestion_artifact=data_ingestion_artifact,
+                                               model_trainer_artifact=model_trainer_artifact)
+            model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
+            print(model_evaluation_artifact)
 
         except Exception as e:
             error = CustomException(e, sys)

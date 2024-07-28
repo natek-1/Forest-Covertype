@@ -5,7 +5,8 @@ from forestCover.constants import (ARTIFACT_DIR, DATA_INGESTION_DIR, DATA_INGEST
                                     TEST_FILE_NAME, DATA_INGESTION_TRAIN_TEST_SPLIT, DATA_VALIDATION_DIR_NAME,
                                     DATA_VALIDATION_DIR_NAME_DRIFT_REPORT_NAME,
                                     DATA_TRANSFORMATION_DIR_NAME, DATA_TRANSFORMATION_TEST_FILE_NAME, DATA_TRANSFORMATION_TRAIN_FILE_NAME, PREPROCESSING_FILE_NAME,
-                                    MODEL_TRAINER_DIR_NAME, MODEL_FILE_NAME, MODEL_TRAINER_CONFIG_PATH, MODEL_MIN_SCORE)
+                                    MODEL_TRAINER_DIR_NAME, MODEL_FILE_NAME, MODEL_TRAINER_CONFIG_PATH, MODEL_MIN_SCORE,
+                                    MODEL_EVALUATION_SCORE_CHANGE, MODEL_PUSHER_BUCKET_NAME, MODEL_PUSHER_S3_KEY)
 
 
 @dataclass
@@ -34,4 +35,11 @@ class ModelTrainerConfig:
     model_path: Path = os.path.join(model_trainer_dir, MODEL_FILE_NAME)
     min_score: float = MODEL_MIN_SCORE
     model_config_path: Path = MODEL_TRAINER_CONFIG_PATH
+
+@dataclass
+class ModelEvaluationConfig:
+    score_change_threshold: float = MODEL_EVALUATION_SCORE_CHANGE
+    bucket_name: str = MODEL_PUSHER_BUCKET_NAME
+    s3_key: str = MODEL_PUSHER_S3_KEY
+
     

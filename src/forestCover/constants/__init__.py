@@ -36,3 +36,10 @@ MODEL_TRAINER_DIR_NAME: str = "model_trainer"
 MODEL_FILE_NAME: str = "model.pkl"
 MODEL_MIN_SCORE: float = 0.7
 MODEL_TRAINER_CONFIG_PATH: Path = os.path.join("config", "model.yaml")
+
+
+# Model Evaluation
+
+MODEL_EVALUATION_SCORE_CHANGE: float = 0.02
+MODEL_PUSHER_BUCKET_NAME: str = "forest-cover-16ssgu7jnvqbqfr3t4fwr2af6fc44u"
+MODEL_PUSHER_S3_KEY: str = "model-registry"
