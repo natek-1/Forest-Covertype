@@ -1,12 +1,10 @@
 import sys, os
-from  logging import Exception
 from io import StringIO
 from typing import Union, List
 
 import pickle
 import pandas as pd
 from mypy_boto3_s3.service_resource import Bucket
-from botocore.exceptions import ClientException
 
 from forestCover.logger import logging
 from forestCover.exception import CustomException

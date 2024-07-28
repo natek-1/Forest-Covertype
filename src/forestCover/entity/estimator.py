@@ -13,7 +13,7 @@ class ForestModel:
     
     def predict(self, df: DataFrame) -> DataFrame:
         try:
-            transformed = self.preprocessor(df)
+            transformed = self.preprocessor.transform(df)
             return self.model.predict(transformed)
         except Exception as e:
             error = CustomException(e, sys)
