@@ -11,7 +11,7 @@ class ForestEstimator:
     def __init__(self, bucket_name, model_path):
         self.bucket_name = bucket_name
         self.s3 = SimpleStroageService()
-        self.model_path = None
+        self.model_path = model_path
         self.model = None
     
     def is_model_present(self, model_path):

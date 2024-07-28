@@ -7,6 +7,7 @@ from forestCover.components.data_validation import DataValidation
 from forestCover.components.data_transformation import DataTransformation
 from forestCover.components.model_training import ModelTrainer
 from forestCover.components.model_evaluation import ModelEvaluation
+from forestCover.components.model_pusher import ModelPusher
 from forestCover.entity.artifacts_entity import DataIngestionArtifact, DataValidationArtifact, DataTransormationArfitact, ModelTrainerArtifact
 from forestCover.exception import CustomException
 from forestCover.logger import logging
@@ -40,7 +41,9 @@ class TrainingPipeline:
             model_evaluation = ModelEvaluation(data_ingestion_artifact=data_ingestion_artifact,
                                                model_trainer_artifact=model_trainer_artifact)
             model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
-            print(model_evaluation_artifact)
+            model_pusher = ModelPusher(model_trainer_artifact=model_trainer_artifact)
+            model_pusher_arfifact = model_pusher.initiate_model_pusher()
+            print(model_pusher_arfifact)
 
         except Exception as e:
             error = CustomException(e, sys)

@@ -42,4 +42,8 @@ class ModelEvaluationConfig:
     bucket_name: str = MODEL_PUSHER_BUCKET_NAME
     s3_key: str = MODEL_PUSHER_S3_KEY
 
+@dataclass
+class ModelPusherConfig:
+    bucket_name: str = MODEL_PUSHER_BUCKET_NAME
+    s3_model_path: str = MODEL_PUSHER_S3_KEY + "/" + MODEL_FILE_NAME
     

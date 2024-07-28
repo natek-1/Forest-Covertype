@@ -5,7 +5,7 @@ from typing import Union, List
 import pickle
 import pandas as pd
 from mypy_boto3_s3.service_resource import Bucket
-
+import boto3
 from forestCover.logger import logging
 from forestCover.exception import CustomException
 from forestCover.config.aws_connection import S3Client
@@ -48,7 +48,8 @@ class SimpleStroageService:
             self.s3_resource.meta.client.upload_file(
                 from_filename, bucket_name, to_filename
             )
-
+            #s3 = boto3.client('s3')
+            #s3.upload_file(from_filename, bucket_name, to_filename)
             logging.info(f"uploaded {from_filename} to {to_filename} in bucket: {bucket_name}")
 
             if remove:
@@ -56,8 +57,8 @@ class SimpleStroageService:
                 logging.info(f"the file located at {from_filename} was deleted")
         except Exception as e:
             error = CustomException(e, sys)
-            logging.info("couldn't upload image")
-            return {"Created": False, "Reason": error.error_message}
+            logging.info(error.error_message)
+            raise error
     
     def get_file_object(self, file_name: str, bucket_name: str):
         bucket = self.get_bucket(bucket_name)
