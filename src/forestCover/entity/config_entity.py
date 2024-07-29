@@ -47,3 +47,7 @@ class ModelPusherConfig:
     bucket_name: str = MODEL_PUSHER_BUCKET_NAME
     s3_model_path: str = MODEL_PUSHER_S3_KEY + "/" + MODEL_FILE_NAME
     
+@dataclass
+class PredictionPipelineConfig:
+    bucket_name: str = MODEL_PUSHER_BUCKET_NAME
+    s3_model_path: str = MODEL_PUSHER_S3_KEY + "/" + MODEL_FILE_NAME

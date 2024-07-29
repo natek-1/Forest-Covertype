@@ -48,8 +48,6 @@ class SimpleStroageService:
             self.s3_resource.meta.client.upload_file(
                 from_filename, bucket_name, to_filename
             )
-            #s3 = boto3.client('s3')
-            #s3.upload_file(from_filename, bucket_name, to_filename)
             logging.info(f"uploaded {from_filename} to {to_filename} in bucket: {bucket_name}")
 
             if remove:

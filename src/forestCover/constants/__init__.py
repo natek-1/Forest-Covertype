@@ -1,6 +1,8 @@
 import os
 from from_root import from_root
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 ## file names
 TARGET_COLUMN = "Cover_Type"
@@ -41,5 +43,5 @@ MODEL_TRAINER_CONFIG_PATH: Path = os.path.join("config", "model.yaml")
 # Model Evaluation
 
 MODEL_EVALUATION_SCORE_CHANGE: float = 0.02
-MODEL_PUSHER_BUCKET_NAME: str = "forest-cover-16ssgu7jnvqbqfr3t4fwr2af6fc44u"
+MODEL_PUSHER_BUCKET_NAME: str = os.getenv("BUCKET_NAME")
 MODEL_PUSHER_S3_KEY: str = "model-registry"
