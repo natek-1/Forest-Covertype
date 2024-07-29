@@ -29,4 +29,12 @@ async def index(request: Request):
 async def trainRouteClient():
     train_pipeline = TrainingPipeline()
     train_pipeline.run_pipeline()
-    return Response("<h1›Training successful 11<h1>")
+    return Response("<h1›Training successful!!<h1>")
+
+@app.get("/predict")
+async def predictRouteClient():
+    pass
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8080)
